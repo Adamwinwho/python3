@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blocks',
     'articles',
+    'pagedown',
 ]
 
 MIDDLEWARE = [
