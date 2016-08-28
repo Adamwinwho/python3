@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
+import configparser
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# parse data from config.ini
+config = configparser.ConfigParser()
+config.read("/home/dragon/python3/conf/config.ini")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -23,7 +27,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2=g#5idkmf9v_-l0@j*l0)gshusqd*uuivqpk8jka0b^pupdd='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = config["default"].getboolean("debug")
 
 ALLOWED_HOSTS = []
 
