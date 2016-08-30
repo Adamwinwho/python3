@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'blocks',
     'articles',
     'pagedown',
+    'usercenter',
 ]
 
 MIDDLEWARE = [
