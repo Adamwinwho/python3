@@ -1,8 +1,14 @@
+#coding:utf-8
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
-class UserCenter(models.Model):
-    name = models.CharField("用户名",max_length=100)
-    passwd = models.CharField("密码",max_length=100)
-    email = models.CharField("邮箱",max_length=100)
-    re_passwd = models.CharField("重复密码",max_length=100)
+
+class ActivateCode(models.Model):
+    owner = models.ForeignKey(User,verbose_name="用户")
+    code = models.CharField("激活码",max_length=100)
+
+    expire_timestamp = models.DateTimeField()
+
+    create_timestamp = models.DateTimeField(auto_now_add=True)
+    last_update_timestamp = models.DateTimeField(auto_now=True)
+
